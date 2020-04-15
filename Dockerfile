@@ -10,10 +10,10 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine AS builder
 WORKDIR /source
 COPY . .
 RUN dotnet restore
-RUN dotnet publish -c Release -r linux-musl-x64 -o /app
+RUN dotnet publish -c Release -r linux-musl-x64 -o /app-healthcheck
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine
-WORKDIR /app
+WORKDIR /app-healthcheck
 #COPY --from=builder /app .
 #COPY --from=node /app/build ./wwwroot
-CMD ASPNETCORE_URLS=http://*:$PORT ./WebApplicationDemo.Heroku
+CMD ASPNETCORE_URLS=http://*:$PORT ./HealthCheck
