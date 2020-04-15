@@ -6,6 +6,9 @@
 #COPY src/client ./src/client/
 #RUN npm run build
 
+FROM node:10.13.0-alpine as node
+RUN cd ./HealthCheck/ClientApp && npm install --progress=true --loglevel=silent
+
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine AS builder
 WORKDIR /source
 COPY . .
