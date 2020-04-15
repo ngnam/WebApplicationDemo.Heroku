@@ -11,9 +11,10 @@
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine AS builder
 WORKDIR /source
+#COPY ./HealthCheck .
 COPY . .
 RUN dotnet restore
-RUN dotnet publish -c Release -r linux-musl-x64 -o /app-healthcheck
+RUN dotnet publish -c Release -r linux-musl-x64 -o /app-healthcheck ./HealthCheck
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine
 WORKDIR /app-healthcheck
