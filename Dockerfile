@@ -6,8 +6,8 @@ RUN dotnet publish -c Release -r linux-musl-x64 -o /app
 
 FROM node:10.13.0-alpine as node
 WORKDIR /app
-COPY bower.json ./
-COPY .bowerrc ./
+COPY WebApplicationDemo.Heroku/bower.json ./
+COPY WebApplicationDemo.Heroku/.bowerrc ./
 RUN npm install bower --progress=true --loglevel=silent
 RUN bower install
 
