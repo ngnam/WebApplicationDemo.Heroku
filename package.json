@@ -1,16 +1,20 @@
 {
   "name": "webapplicationdemo.heroku",
   "version": "1.0.0",
-  "description": "",
+  "description": "app deploy to heroku",
   "main": "index.js",
   "scripts": {
-    "bowerinstall": "bower install"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ngnam/WebApplicationDemo.Heroku.git"
   },
-  "author": "",
+  "keywords": [
+    "aspnetcore",
+    "heroku"
+  ],
+  "author": "ngnam",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ngnam/WebApplicationDemo.Heroku/issues"
