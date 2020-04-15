@@ -8,8 +8,9 @@ FROM node:10.13.0-alpine as node
 WORKDIR /app
 COPY WebApplicationDemo.Heroku/bower.json ./
 COPY WebApplicationDemo.Heroku/.bowerrc ./
-RUN npm install bower --progress=true --loglevel=silent
-RUN bower install
+RUN npm install bower
+RUN npm run bowerinstall
+COPY wwwroot/lib ./testcopy
 
 #FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-alpine
 #WORKDIR /app
